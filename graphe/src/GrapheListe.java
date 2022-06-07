@@ -24,10 +24,7 @@ public class GrapheListe implements Graphe {
      */
     @Override
     public List<Arc> suivants(String n) {
-        if (ensNom.contains(n)) {
-            return ensNoeud.get(ensNom.indexOf(n)).getAdj();
-        }
-
+        return ensNoeud.get(ensNom.indexOf(n)).getAdj();
     }
 
     public void ajouterArc(String n1, String n2, double poids) {
