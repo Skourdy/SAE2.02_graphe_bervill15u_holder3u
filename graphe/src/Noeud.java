@@ -11,7 +11,7 @@ public class Noeud{
 
     public boolean equals(Object o){
         if (this.nom == (Noeud)o.getNom()){
-            return true
+            return true;
         }
         else return false;
     }
@@ -25,5 +25,9 @@ public class Noeud{
 
     public String getNom() {
         return nom;
+    }
+
+    public List<Arc> getAdj() {
+        return adj;
     }
 }
