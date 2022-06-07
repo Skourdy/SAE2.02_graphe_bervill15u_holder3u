@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args){
-        ListGraphe lg = new ListeGraphe();
+        GrapheListe lg = new GrapheListe();
         lg.ajouterArc()
     }
 }
