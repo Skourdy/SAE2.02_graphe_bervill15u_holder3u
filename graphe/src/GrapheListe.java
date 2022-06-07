@@ -72,6 +72,7 @@ public class GrapheListe implements Graphe {
                 s.append(ensNoeud.get(i).getAdj().get(j).getCout());
                 s.append(") ");
             }
+            s.append("\n");
         }
         return s.toString();
     }
