@@ -3,11 +3,12 @@ import java.util.List;
 public class Noeud{
 
     private String nom;
-    private List<Arc> adj;
+    private List adj;
 
 
-    public Noeud(String n){
-        this.nom = n;
+   // Constructeur
+    public Noeud(String nom){
+        this.nom = nom;
         this.adj = new List<Arc>();
     }
 

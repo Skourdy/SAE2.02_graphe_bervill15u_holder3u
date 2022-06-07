@@ -12,6 +12,13 @@ public class GrapheListe implements Graphe {
 
     //Méthode listeNoeuds()
     //Retourne la liste des noms de noeuds
+
+    //Constructeur de GrapheListe
+    public GrapheListe(List<String> ensNom, List<Noeud> ensNoeud) {
+        this.ensNom = ensNom;
+        this.ensNoeud = ensNoeud;
+    }
+
     @Override
     public List<String> listeNoeuds() {
         return ensNom;
@@ -28,6 +35,7 @@ public class GrapheListe implements Graphe {
     }
 
     public void ajouterArc(String n1, String n2, double poids) {
+
 
     }
 }
