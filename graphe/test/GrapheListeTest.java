@@ -74,4 +74,9 @@ class GrapheListeTest {
         assertEquals("A",lg.listeNoeuds().get(3));
     }
 
+    @Test
+    void test_toGraphviz(){
+
+    }
+
 }
