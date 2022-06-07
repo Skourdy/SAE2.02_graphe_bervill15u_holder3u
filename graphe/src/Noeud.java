@@ -1,22 +1,25 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Noeud{
 
     private String nom;
-    private List adj;
+    private final List<Arc> adj = new ArrayList<Arc>();
 
 
    // Constructeur
     public Noeud(String nom){
         this.nom = nom;
-        this.adj = new List<Arc>();
     }
 
+
+    /**
+     * Méthode equals()
+     * @param o
+     * @return
+     */
     public boolean equals(Noeud o){
-        if (this.nom == o.getNom()){
-            return true;
-        }
-        else return false;
+        return this.nom == o.getNom();
     }
 
     public void ajouterArc(String destination, double cout){
