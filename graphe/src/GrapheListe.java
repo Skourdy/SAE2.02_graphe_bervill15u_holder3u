@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +21,17 @@ public class GrapheListe implements Graphe {
         this.ensNoeud = ensNoeud;
     }
 
-    public GrapheListe(String n) {
+    //Constructeur prenant un fichier txt en parametre créant le graphe
+    public GrapheListe(String nomFichier) throws IOException {
+        this.ensNom = new ArrayList<String>();
+        this.ensNoeud = new ArrayList<Noeud>();
+        FileReader lf = new FileReader(nomFichier);
+        BufferedReader br = new BufferedReader(lf);
+        for (String ligne = br.readLine(); ligne != null; ligne = br.readLine()) {
+            String[] recup = ligne.split("\t");
+            this.ajouterArc(recup[0], recup[1], Integer.parseInt(recup[2]));
+            this.ensNom.add(recup[0]);
+        }
     }
 
 
