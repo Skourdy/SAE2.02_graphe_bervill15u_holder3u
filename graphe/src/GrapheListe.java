@@ -42,12 +42,11 @@ public class GrapheListe implements Graphe {
      *
      * @param n
      * @param n2
-     * @param poids
-     * Permet d'ajouter un arc entre deux noeuds
-     * en vérifiant que les noeuds existent bien et que l'arc n'existe pas déjà
-     * en prenant en compte le fait que chaque noeud et chaque nom sont ajoutés simultanément dans les listes
-     * et sont donc positionnés aux mêmes indices dans les deux listes
-     * Si les noeuds n'existent pas, ils sont créés.
+     * @param poids Permet d'ajouter un arc entre deux noeuds
+     *              en vérifiant que les noeuds existent bien et que l'arc n'existe pas déjà
+     *              en prenant en compte le fait que chaque noeud et chaque nom sont ajoutés simultanément dans les listes
+     *              et sont donc positionnés aux mêmes indices dans les deux listes
+     *              Si les noeuds n'existent pas, ils sont créés.
      * @throws IOException
      */
     public void ajouterArc(String n, String n2, int poids) throws IOException {
@@ -61,5 +60,19 @@ public class GrapheListe implements Graphe {
         if (!ensNoeud.get(ensNom.indexOf(n)).getAdj().contains(new Arc(n2, poids))) {
             ensNoeud.get(ensNom.indexOf(n)).ajouterArc(n2, poids);
         }
+    }
+
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < ensNom.size(); i++) {
+            s.append(ensNom.get(i)).append(" -> ");
+            for (int j = 0; j < ensNoeud.get(i).getAdj().size(); j++) {
+                s.append(ensNoeud.get(i).getAdj().get(j));
+                s.append("(");
+                s.append(ensNoeud.get(i).getAdj().get(j).getCout());
+                s.append(") ");
+            }
+        }
+        return s.toString();
     }
 }
