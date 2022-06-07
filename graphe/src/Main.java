@@ -35,7 +35,7 @@ public class Main {
         noeuds.add(nE);
 
         GrapheListe lg = new GrapheListe(nom,noeuds);
-        System.out.println(lg.toGraphViz());
+        System.out.println(lg.toString());
 
     }
 }
