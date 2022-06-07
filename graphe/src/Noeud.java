@@ -8,4 +8,17 @@ public class Noeud{
         this.nom = n;
         this.adj = new List<Arc>();
     }
+
+    public boolean equals(Object o){
+        if (this.nom == (Noeud)o.getNom()){
+            return true
+        }
+        else return false;
+    }
+
+
+
+    public String getNom() {
+        return nom;
+    }
 }
