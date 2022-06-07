@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         List<String> nom = new ArrayList<>();
         nom.add("A");
         nom.add("B");
@@ -34,8 +35,11 @@ public class Main {
         nE.ajouterArc("D",43);
         noeuds.add(nE);
 
-        GrapheListe lg = new GrapheListe(nom,noeuds);
-        System.out.println(lg.toString());
+        //GrapheListe lg = new GrapheListe(nom,noeuds);
+        //System.out.println(lg.toString());
 
+
+        GrapheListe gl= new GrapheListe("Graphes/Graphe1.txt");
+        System.out.println(gl.toString());
     }
 }

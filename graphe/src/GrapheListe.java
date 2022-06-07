@@ -90,7 +90,7 @@ public class GrapheListe implements Graphe {
         for (int i = 0; i < ensNom.size(); i++) {
             s.append(ensNom.get(i)).append(" -> ");
             for (int j = 0; j < ensNoeud.get(i).getAdj().size(); j++) {
-                s.append(ensNoeud.get(i).getAdj().get(j));
+                s.append(ensNoeud.get(i).getAdj().get(j).getDest());
                 s.append("(");
                 s.append(ensNoeud.get(i).getAdj().get(j).getCout());
                 s.append(") ");
