@@ -79,9 +79,12 @@ public class GrapheListe implements Graphe {
             ensNoeud.add(new Noeud(n2));
             ensNom.add(n2);
         }
-        if (!ensNoeud.get(ensNom.indexOf(n)).getAdj().contains(new Arc(n2, poids))) {
-            ensNoeud.get(ensNom.indexOf(n)).ajouterArc(n2, poids);
-        }
+
+
+        int index = ensNom.indexOf(n);
+        Noeud noeud = ensNoeud.get(index);
+        noeud.ajouterArc(n2, poids);
+
     }
 
     public String toString() {
