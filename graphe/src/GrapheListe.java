@@ -79,6 +79,24 @@ public class GrapheListe implements Graphe {
         return s.toString();
     }
 
+    public String toGraphViz() {
+        StringBuilder msg = new StringBuilder();
+        msg.append("digraph {" + "\n");
+        for (int i = 0; i < ensNom.size(); i++) {
+            for (int j = 0; j < ensNoeud.get(i).getAdj().size(); j++) {
+                msg.append(ensNom.get(i));
+                msg.append(" -> ");
+                msg.append(ensNoeud.get(i).getAdj().get(j).getDest());
+                msg.append(" [label = ");
+                msg.append((int) ensNoeud.get(i).getAdj().get(j).getCout());
+                msg.append("] ");
+                msg.append("\n");
+            }
+        }
+        msg.append("}");
+        return msg.toString();
+    }
+
     public List<Noeud> getEnsNoeud() {
         return ensNoeud;
     }
