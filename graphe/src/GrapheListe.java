@@ -18,6 +18,8 @@ public class GrapheListe implements Graphe {
         this.ensNoeud = ensNoeud;
     }
 
+    public GrapheListe(String n) {
+    }
 
 
     @Override
