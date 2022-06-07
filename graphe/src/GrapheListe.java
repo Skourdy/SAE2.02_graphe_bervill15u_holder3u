@@ -65,15 +65,34 @@ public class GrapheListe implements Graphe {
     public String toString() {
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < ensNom.size(); i++) {
-            s.append(ensNom.get(i)).append(" -> ");
+            s.append(ensNom.get(i));
+            s.append(" -> ");
             for (int j = 0; j < ensNoeud.get(i).getAdj().size(); j++) {
                 s.append(ensNoeud.get(i).getAdj().get(j).getDest());
                 s.append("(");
-                s.append((int)ensNoeud.get(i).getAdj().get(j).getCout());
+                s.append((int) ensNoeud.get(i).getAdj().get(j).getCout());
                 s.append(") ");
             }
             s.append("\n");
         }
         return s.toString();
+    }
+
+    public String toGraphViz() {
+        StringBuilder msg = new StringBuilder();
+        msg.append("digraph {" + "\n");
+        for (int i = 0; i < ensNom.size(); i++) {
+            for (int j = 0; j < ensNoeud.get(i).getAdj().size(); j++) {
+                msg.append(ensNom.get(i));
+                msg.append(" -> ");
+                msg.append(ensNoeud.get(i).getAdj().get(j).getDest());
+                msg.append(" [label = ");
+                msg.append((int) ensNoeud.get(i).getAdj().get(j).getCout());
+                msg.append("] ");
+                msg.append("\n");
+            }
+        }
+        msg.append("}");
+        return msg.toString();
     }
 }
