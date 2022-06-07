@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Noeud{
 
-    private String nom;
+    private final String nom;
     private final List<Arc> adj = new ArrayList<Arc>();
 
 
@@ -15,19 +15,27 @@ public class Noeud{
 
     /**
      * Méthode equals()
-     * @param o
-     * @return
+     * Compare le nom du noeud donné à celui de la classe
+     * @param o : Noeud
+     * @return boolean
      */
     public boolean equals(Noeud o){
         return this.nom == o.getNom();
     }
 
+    /**
+     * Méthode ajouterArc()
+     * Permet d'ajouter un Arc au noeud
+     * @param destination : le noeud
+     * @param cout : le cout
+     */
     public void ajouterArc(String destination, double cout){
-        Arc a = new Arc(destination,cout);
-        adj.add(a);
+        adj.add(new Arc(destination,cout));
     }
 
-
+    /*
+    GETTER
+     */
 
     public String getNom() {
         return nom;
