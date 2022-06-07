@@ -4,7 +4,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args){
-        List<String> nom = new ArrayList<String>();
+        List<String> nom = new ArrayList<>();
         nom.add("A");
         nom.add("B");
         nom.add("C");
@@ -35,5 +35,6 @@ public class Main {
         noeuds.add(nE);
 
         GrapheListe lg = new GrapheListe(nom,noeuds);
+        lg.toString();
     }
 }

@@ -17,4 +17,12 @@ public class Arc {
     public double getCout() {
         return cout;
     }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public double getCout(){
+        return cout;
+    }
 }

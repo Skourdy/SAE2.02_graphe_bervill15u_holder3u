@@ -44,4 +44,6 @@ public class Noeud{
     public List<Arc> getAdj() {
         return adj;
     }
+
+    public Arc getArc(int index){return adj.get(index);}
 }
