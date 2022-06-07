@@ -22,8 +22,17 @@ public class Main {
         noeuds.add(nB);
 
         Noeud nC = new Noeud("C");
-        nC.ajouterArc("A",);
+        nC.ajouterArc("A",19);
+        noeuds.add(nC);
 
+        Noeud nD = new Noeud("D");
+        nD.ajouterArc("B",23);
+        nD.ajouterArc("C",10);
+        noeuds.add(nD);
+
+        Noeud nE = new Noeud("E");
+        nE.ajouterArc("D",43);
+        noeuds.add(nE);
 
         GrapheListe lg = new GrapheListe(nom,noeuds);
     }
