@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -10,8 +11,6 @@ public class GrapheListe implements Graphe {
     //Liste des noeuds
     List<Noeud> ensNoeud;
 
-    //Méthode listeNoeuds()
-    //Retourne la liste des noms de noeuds
 
     //Constructeur de GrapheListe
     public GrapheListe(List<String> ensNom, List<Noeud> ensNoeud) {
@@ -27,15 +26,40 @@ public class GrapheListe implements Graphe {
 
     /**
      * Méthode suivants(String n)
-     * Retourne la liste des arcs partant du noeud n
+     *
+     * @param n
+     * @return List<StrinArc>
+     * en prenant en compte le fait que chaque noeud et chaque nom sont ajoutés simultanément dans les listes
+     * et sont donc positionnés aux mêmes indices dans les deux listes
      */
     @Override
     public List<Arc> suivants(String n) {
         return ensNoeud.get(ensNom.indexOf(n)).getAdj();
     }
 
-    public void ajouterArc(String n1, String n2, double poids) {
-
-
+    /**
+     * Méthode ajouterArc
+     *
+     * @param n
+     * @param n2
+     * @param poids
+     * Permet d'ajouter un arc entre deux noeuds
+     * en vérifiant que les noeuds existent bien et que l'arc n'existe pas déjà
+     * en prenant en compte le fait que chaque noeud et chaque nom sont ajoutés simultanément dans les listes
+     * et sont donc positionnés aux mêmes indices dans les deux listes
+     * Si les noeuds n'existent pas, ils sont créés.
+     * @throws IOException
+     */
+    public void ajouterArc(String n, String n2, int poids) throws IOException {
+        if (!ensNom.contains(n)) {
+            ensNoeud.add(new Noeud(n));
+            ensNom.add(n);
+        } else if (!ensNom.contains(n2)) {
+            ensNoeud.add(new Noeud(n2));
+            ensNom.add(n2);
+        }
+        if (!ensNoeud.get(ensNom.indexOf(n)).getAdj().contains(new Arc(n2, poids))) {
+            ensNoeud.get(ensNom.indexOf(n)).ajouterArc(n2, poids);
+        }
     }
 }
