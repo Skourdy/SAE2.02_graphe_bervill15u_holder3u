@@ -11,8 +11,8 @@ public class Noeud{
         this.adj = new List<Arc>();
     }
 
-    public boolean equals(Object o){
-        if (this.nom == (Noeud)o.getNom()){
+    public boolean equals(Noeud o){
+        if (this.nom == o.getNom()){
             return true;
         }
         else return false;
