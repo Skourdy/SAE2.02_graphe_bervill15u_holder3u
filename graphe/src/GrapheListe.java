@@ -76,8 +76,4 @@ public class GrapheListe implements Graphe {
         }
         return s.toString();
     }
-
-    public List<Noeud> getEnsNoeud() {
-        return ensNoeud;
-    }
 }

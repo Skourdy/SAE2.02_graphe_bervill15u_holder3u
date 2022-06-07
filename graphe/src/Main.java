@@ -36,5 +36,6 @@ public class Main {
 
         GrapheListe lg = new GrapheListe(nom,noeuds);
         System.out.println(lg.toString());
+
     }
 }
