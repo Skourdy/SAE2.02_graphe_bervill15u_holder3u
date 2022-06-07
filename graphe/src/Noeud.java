@@ -16,6 +16,11 @@ public class Noeud{
         else return false;
     }
 
+    public void ajouterArc(String destination, double cout){
+        Arc a = new Arc(destination,cout);
+        adj.add(a);
+    }
+
 
 
     public String getNom() {
