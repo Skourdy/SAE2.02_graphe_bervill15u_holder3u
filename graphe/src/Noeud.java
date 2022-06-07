@@ -20,7 +20,7 @@ public class Noeud{
      * @return boolean
      */
     public boolean equals(Noeud o){
-        return this.nom == o.getNom();
+        return this.nom.equals(o.getNom());
     }
 
     /**
