@@ -3,27 +3,46 @@ import java.util.List;
 public class BellmanFord {
 
 
-    public Valeur[] resoudre(Graphe g, String depart){
-        Valeur[] v = new Valeur[g.listeNoeuds().size()];
-        for (int i = 0; i<g.listeNoeuds().size();i++){
-            if (depart == g.listeNoeuds().get(i)){
-                v[i].setValeur(Integer.toString(i),0);
-                v[i].setParent(Integer.toString(i),"Départ");
-            }else {
-                v[i].setValeur(Integer.toString(i), Double.MAX_VALUE);
-                v[i].setParent(Integer.toString(i),null);
-            }
+    public Valeur resoudre(Graphe g, String depart) {
+        Valeur v = new Valeur();
 
+
+        List<String> listeDesNoms = g.listeNoeuds();
+        int size = listeDesNoms.size();
+
+        for (int i = 0; i < size; i++) {
+            String nomI = listeDesNoms.get(i);
+            v.setValeur(nomI, Double.MAX_VALUE);
+            v.setParent(nomI, null);
         }
-        for (int k = 0;k<g.listeNoeuds().size();k++){
-            String kString = Integer.toString(k);
-            List<Arc> lArc = g.suivants(g.listeNoeuds().get(k));
-            for (int l =0 ;l<lArc.size()  ; l++ ){
-                if (lArc.get(l).getCout()+ v[k].getValeur(v[k].getParent(kString)) <v[k].getValeur(kString)){
-                    v[k].setValeur(kString,lArc.get(l).getCout()+ v[k].getValeur(v[k].getParent(kString)));
-                    v[k].setParent(kString,v[k].getParent(kString));
+
+        v.setValeur(depart, 0);
+        v.setParent(depart, "Départ");
+
+        // pour tous les noeuds
+        for (int k = 0; k < size; k++) {
+
+            // tous les successeurs du noeud k
+            List<Arc> lArc = g.suivants(listeDesNoms.get(k));
+            for (int l = 0; l < lArc.size(); l++) {
+
+
+                String nomActuel = listeDesNoms.get(k);
+                String parentK = v.getParent(nomActuel);
+                double valeurK = v.getValeur(nomActuel);
+
+                Arc arc = lArc.get(l);
+                String destArc = arc.getDest();
+                double valDest = v.getValeur(destArc);
+                double coutArc = arc.getCout();
+
+
+                if (coutArc + valeurK < valDest) {
+                    v.setValeur(nomActuel, coutArc + valeurK);
+                    v.setParent(nomActuel, parentK);
                 }
             }
+
         }
         return v;
     }
