@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Noeud{
 
-    private final String nom;
-    private final List<Arc> adj = new ArrayList<Arc>();
+    private String nom;
+    private List<Arc> adj = new ArrayList<Arc>();
 
 
    // Constructeur
