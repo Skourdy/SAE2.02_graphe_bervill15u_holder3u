@@ -30,7 +30,6 @@ public class BellmanFord {
 
 
                 String nomActuel = listeDesNoms.get(k);
-                String parentK = v.getParent(nomActuel);
                 double valeurK = v.getValeur(nomActuel);
 
                 String destArc = value.getDest();

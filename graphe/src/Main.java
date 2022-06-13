@@ -41,10 +41,10 @@ public class Main {
 
         GrapheListe gl= new GrapheListe("Graphes/Graphe1.txt");
         System.out.println(gl.toString());
-        BellmanFord bf = new BellmanFord();
+        Dijkstra bf = new Dijkstra();
         Valeur valeur =  bf.resoudre(gl,"1");
 
         System.out.println(valeur);
-        System.out.println(bf.calculerChemin("10"));
+        //System.out.println(bf.calculerChemin("10"));
     }
 }
