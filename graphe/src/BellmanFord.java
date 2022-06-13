@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class BellmanFord {
+    private Valeur valeur;
 
 
     public Valeur resoudre(Graphe g, String depart) {
@@ -37,8 +39,6 @@ public class BellmanFord {
 
 
                 if (coutArc + valeurK < valDest) {
-                    System.out.println("ee");
-                    System.out.println(nomActuel+"   "+ parentK+"   " + coutArc);
                     v.setValeur(destArc, coutArc + valeurK);
                     v.setParent(destArc, nomActuel);
 
@@ -46,6 +46,19 @@ public class BellmanFord {
             }
 
         }
-        return v;
+        this.valeur = v;
+        return this.valeur;
+    }
+
+
+    public List<String> calculerChemin(String destination){
+        List<String> chemin = new ArrayList<>();
+        String parentActuel = valeur.getParent(destination);
+        chemin.add(parentActuel);
+        while(!parentActuel.equals("Départ")){
+            parentActuel= valeur.getParent(destination);
+            chemin.add(parentActuel);
+        }
+        return chemin;
     }
 }

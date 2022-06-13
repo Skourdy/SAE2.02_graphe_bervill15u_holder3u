@@ -45,5 +45,6 @@ public class Main {
         Valeur valeur =  bf.resoudre(gl,"1");
 
         System.out.println(valeur);
+        System.out.println(bf.calculerChemin("10"));
     }
 }
