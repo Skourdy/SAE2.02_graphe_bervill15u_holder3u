@@ -40,6 +40,7 @@ public class BellmanFord {
                 if (coutArc + valeurK < valDest) {
                     v.setValeur(nomActuel, coutArc + valeurK);
                     v.setParent(nomActuel, parentK);
+
                 }
             }
 
