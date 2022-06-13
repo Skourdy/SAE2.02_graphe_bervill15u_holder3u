@@ -56,7 +56,7 @@ public class BellmanFord {
         String parentActuel = valeur.getParent(destination);
         chemin.add(parentActuel);
         while(!parentActuel.equals("Départ")){
-            parentActuel= valeur.getParent(destination);
+            parentActuel= valeur.getParent(parentActuel);
             chemin.add(parentActuel);
         }
         return chemin;
