@@ -24,22 +24,23 @@ public class BellmanFord {
 
             // tous les successeurs du noeud k
             List<Arc> lArc = g.suivants(listeDesNoms.get(k));
-            for (int l = 0; l < lArc.size(); l++) {
+            for (Arc value : lArc) {
 
 
                 String nomActuel = listeDesNoms.get(k);
                 String parentK = v.getParent(nomActuel);
                 double valeurK = v.getValeur(nomActuel);
 
-                Arc arc = lArc.get(l);
-                String destArc = arc.getDest();
+                String destArc = value.getDest();
                 double valDest = v.getValeur(destArc);
-                double coutArc = arc.getCout();
+                double coutArc = value.getCout();
 
 
                 if (coutArc + valeurK < valDest) {
-                    v.setValeur(nomActuel, coutArc + valeurK);
-                    v.setParent(nomActuel, parentK);
+                    System.out.println("ee");
+                    System.out.println(nomActuel+"   "+ parentK+"   " + coutArc);
+                    v.setValeur(destArc, coutArc + valeurK);
+                    v.setParent(destArc, nomActuel);
 
                 }
             }

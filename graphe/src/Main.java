@@ -42,7 +42,7 @@ public class Main {
         GrapheListe gl= new GrapheListe("Graphes/Graphe1.txt");
         System.out.println(gl.toString());
         BellmanFord bf = new BellmanFord();
-        Valeur valeur =  bf.resoudre(gl,"A");
+        Valeur valeur =  bf.resoudre(gl,"1");
 
         System.out.println(valeur);
     }
