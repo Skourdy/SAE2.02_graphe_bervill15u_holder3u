@@ -20,42 +20,46 @@ public class BellmanFord {
 
         v.setValeur(depart, 0);
         v.setParent(depart, "Départ");
+        boolean ligne_modifier = true;
 
-        // pour tous les noeuds
-        for (int k = 0; k < size; k++) {
+        while (ligne_modifier) {
+            ligne_modifier = false;
+            System.out.println("r");
+            // pour tous les noeuds
+            for (int k = 0; k < size; k++) {
 
-            // tous les successeurs du noeud k
-            List<Arc> lArc = g.suivants(listeDesNoms.get(k));
-            for (Arc value : lArc) {
-
-
-                String nomActuel = listeDesNoms.get(k);
-                double valeurK = v.getValeur(nomActuel);
-
-                String destArc = value.getDest();
-                double valDest = v.getValeur(destArc);
-                double coutArc = value.getCout();
+                // tous les successeurs du noeud k
+                List<Arc> lArc = g.suivants(listeDesNoms.get(k));
+                for (Arc value : lArc) {
 
 
-                if (coutArc + valeurK < valDest) {
-                    v.setValeur(destArc, coutArc + valeurK);
-                    v.setParent(destArc, nomActuel);
+                    String nomActuel = listeDesNoms.get(k);
+                    double valeurK = v.getValeur(nomActuel);
 
+                    String destArc = value.getDest();
+                    double valDest = v.getValeur(destArc);
+                    double coutArc = value.getCout();
+
+
+                    if (coutArc + valeurK < valDest) {
+                        v.setValeur(destArc, coutArc + valeurK);
+                        v.setParent(destArc, nomActuel);
+                        ligne_modifier = true;
+                    }
                 }
             }
-
         }
         this.valeur = v;
         return this.valeur;
     }
 
 
-    public List<String> calculerChemin(String destination){
+    public List<String> calculerChemin(String destination) {
         List<String> chemin = new ArrayList<>();
         String parentActuel = valeur.getParent(destination);
         chemin.add(parentActuel);
-        while(!parentActuel.equals("Départ")){
-            parentActuel= valeur.getParent(parentActuel);
+        while (!parentActuel.equals("Départ")) {
+            parentActuel = valeur.getParent(parentActuel);
             chemin.add(parentActuel);
         }
         return chemin;
