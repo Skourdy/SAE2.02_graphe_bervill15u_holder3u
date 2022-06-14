@@ -23,14 +23,4 @@ class DijkstraTest {
                 "8 ->  V:18.0 p:9\n" +
                 "9 ->  V:16.0 p:3\n",val.toString());
     }
-
-    @Test
-    void calculerCheminTest() throws IOException {
-        GrapheListe gl = new GrapheListe("Graphes/Graphe1.txt");
-        Dijkstra dj = new Dijkstra();
-        dj.resoudre(gl,"1");
-        List<String> chemin = dj.calculerChemin("4");
-        assertEquals("[1, Départ]",chemin.toString());
-    }
-
 }

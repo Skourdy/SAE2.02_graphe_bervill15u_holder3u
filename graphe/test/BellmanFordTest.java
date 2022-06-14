@@ -23,13 +23,4 @@ class BellmanFordTest {
                 "8 ->  V:18.0 p:9\n" +
                 "9 ->  V:16.0 p:3\n",val.toString());
     }
-
-    @Test
-    void calculerCheminTest() throws IOException {
-        GrapheListe gl = new GrapheListe("Graphes/Graphe1.txt");
-        BellmanFord bf = new BellmanFord();
-        bf.resoudre(gl,"1");
-        List<String> chemin = bf.calculerChemin("10");
-        assertEquals("[5, 2, 1, Départ]",chemin.toString());
-    }
 }

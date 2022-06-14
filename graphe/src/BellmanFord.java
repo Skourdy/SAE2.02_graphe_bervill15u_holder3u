@@ -2,9 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BellmanFord {
-    private Valeur valeur;
-
-
     public Valeur resoudre(Graphe g, String depart) {
         Valeur v = new Valeur();
 
@@ -49,22 +46,11 @@ public class BellmanFord {
                         //Pass en true
                         ligne_modifier = true;
                     }
+                    System.out.println(v);
+
                 }
             }
         }
-        this.valeur = v;
-        return this.valeur;
-    }
-
-
-    public List<String> calculerChemin(String destination) {
-        List<String> chemin = new ArrayList<>();
-        String parentActuel = valeur.getParent(destination);
-        chemin.add(parentActuel);
-        while (!parentActuel.equals("Départ")) {
-            parentActuel = valeur.getParent(parentActuel);
-            chemin.add(parentActuel);
-        }
-        return chemin;
+        return v;
     }
 }

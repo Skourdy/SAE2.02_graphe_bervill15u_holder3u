@@ -87,5 +87,15 @@ public class Valeur {
         return res;
 
     }
+    public List<String> calculerChemin(String destination) {
+        List<String> chemin = new ArrayList<>();
+        String parentActuel = this.parent.get(destination);
+        chemin.add(parentActuel);
+        while (!parentActuel.equals("Départ")) {
+            parentActuel = this.parent.get(parentActuel);
+            chemin.add(parentActuel);
+        }
+        return chemin;
+    }
 
 }

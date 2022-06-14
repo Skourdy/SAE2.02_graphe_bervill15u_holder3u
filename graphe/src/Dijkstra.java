@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dijkstra {
-    private Valeur valeur;
-
     public Valeur resoudre(Graphe g, String depart) {
 
         Valeur v = new Valeur();
@@ -43,22 +41,11 @@ public class Dijkstra {
                         v.setValeur(destArc, coutArc + valeurActuel);
                         v.setParent(destArc, nomActuel);
                     }
+                    System.out.println(v);
+
                 }
                 listeDesNoms.remove(nomActuel);
-
         }
-        this.valeur = v;
-        return valeur;
-    }
-
-    public List<String> calculerChemin(String destination) {
-        List<String> chemin = new ArrayList<>();
-        String parentActuel = valeur.getParent(destination);
-        chemin.add(parentActuel);
-        while (!parentActuel.equals("Départ")) {
-            parentActuel = valeur.getParent(parentActuel);
-            chemin.add(parentActuel);
-        }
-        return chemin;
+        return v;
     }
 }
