@@ -32,7 +32,6 @@ public class Dijkstra {
                     }
                 }
                 List<Arc> listArc = g.suivants(nomActuel);
-
                 for (Arc value : listArc) {
 
                     valeurActuel = v.getValeur(nomActuel);
@@ -42,8 +41,8 @@ public class Dijkstra {
 
                     if (valDest > valeurActuel + coutArc) {
                         v.setValeur(destArc, coutArc + valeurActuel);
+                        v.setParent(destArc, nomActuel);
                     }
-                    v.setParent(destArc, nomActuel);
                 }
                 listeDesNoms.remove(nomActuel);
 

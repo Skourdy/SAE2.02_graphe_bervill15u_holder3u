@@ -22,9 +22,11 @@ public class BellmanFord {
         v.setParent(depart, "Départ");
         boolean ligne_modifier = true;
 
+        //Tant que la ligne est modifer
         while (ligne_modifier) {
+            //On remet à false
             ligne_modifier = false;
-            System.out.println("r");
+
             // pour tous les noeuds
             for (int k = 0; k < size; k++) {
 
@@ -32,7 +34,7 @@ public class BellmanFord {
                 List<Arc> lArc = g.suivants(listeDesNoms.get(k));
                 for (Arc value : lArc) {
 
-
+                    //On prend toutes les variables
                     String nomActuel = listeDesNoms.get(k);
                     double valeurK = v.getValeur(nomActuel);
 
@@ -40,10 +42,11 @@ public class BellmanFord {
                     double valDest = v.getValeur(destArc);
                     double coutArc = value.getCout();
 
-
+                    //Si le cout change
                     if (coutArc + valeurK < valDest) {
                         v.setValeur(destArc, coutArc + valeurK);
                         v.setParent(destArc, nomActuel);
+                        //Pass en true
                         ligne_modifier = true;
                     }
                 }
