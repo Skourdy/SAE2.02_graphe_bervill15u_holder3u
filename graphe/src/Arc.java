@@ -3,6 +3,7 @@ public class Arc {
     private String dest;
     private double cout;
 
+    //Constructeur par défaut
     public Arc(String dest, double cout) {
         if (cout > 0) {
             this.dest = dest;
@@ -10,12 +11,6 @@ public class Arc {
         }
     }
 
-    public String getDest() {
-        return dest;
-    }
-
-    public double getCout() {
-        return cout;
-    }
-
+    public String getDest() {return dest;}
+    public double getCout() {return cout;}
 }

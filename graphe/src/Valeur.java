@@ -4,10 +4,10 @@ import java.util.TreeMap;
 import java.util.List;
 
 /**
- * Classe fournie, permet de stocker des valeurs associées au noeud et des parents
- * - un noeud est represente par un String (son nom)
- * - on accede avec des get (getValeur et getParent)
- * - on modifie avec des set (setValeur et setParent)
+ * Classe fournie, permet de stocker des valeurs associées au nœud et des parents
+ * - un nœud est représenté par un String (son nom)
+ * - on accède avec des gets (getValeur et getParent)
+ * - on modifie avec des sets (setValeur et setParent)
  */
 public class Valeur {
 
@@ -29,7 +29,7 @@ public class Valeur {
     /**
      * permet d'associer une valeur a un nom de noeud (ici L(X))
      *
-     * @param nom    le nom du noeud
+     * @param nom    le nom du nœud
      * @param valeur la valeur associée
      */
     public void setValeur(String nom, double valeur) {
@@ -41,17 +41,17 @@ public class Valeur {
      * * permet d'associer un parent a un nom de noeud (ici parent(X))
      *
      * @param nom    nom du noeud
-     * @param parent nom du noeud parent associe
+     * @param parent nom du nœud parent associe
      */
     public void setParent(String nom, String parent) {
         this.parent.put(nom, parent);
     }
 
     /**
-     * accede au parent stocke associe au noeud nom passe en parametre
+     * accede au parent stocke associe au nœud nom passe en paramètre
      *
      * @param nom nom du noeud
-     * @return le nom du noeud parent
+     * @return le nom du nœud parent
      */
     public String getParent(String nom) {
         return this.parent.get(nom);
@@ -59,10 +59,10 @@ public class Valeur {
 
 
     /**
-     * accede a la valeur associee au noeud nom passe en parametre
+     * accede a la valeur associée au nœud nom passe en paramètre
      *
      * @param nom nom du noeud
-     * @return la valeur stockee
+     * @return la valeur stockée
      */
     public double getValeur(String nom) {
         return this.valeur.get(nom);
@@ -70,16 +70,16 @@ public class Valeur {
 
     /**
      * retourne une chaine qui affiche le contenu
-     * - par noeud stocke
-     * - a chaque noeud, affiche la valeur puis le noeud parent
+     * - par nœud stocke
+     * - a chaque nœud, affiche la valeur puis le nœud parent
      *
-     * @return descriptif du noeud
+     * @return descriptif du nœud
      */
     public String toString() {
         String res = "";
-        // pour chaque noeud
+        // pour chaque nœud
         for (String s : this.valeur.keySet()) {
-            // ajoute la valeur et le noeud parent
+            // ajoute la valeur et le nœud parent
             Double valeurNoeud = valeur.get(s);
             String noeudParent = parent.get(s);
             res += s + " ->  V:" + valeurNoeud + " p:" + noeudParent + "\n";
