@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ class GrapheListeTest {
         noms.add("C");
         noms.add("E");
 
-        List<Noeud> noeudsL = new ArrayList<Noeud>();
+        List<Noeud> noeudsL = new ArrayList<>();
         Noeud n1 = new Noeud("A");
         n1.ajouterArc("B",1);
         n1.ajouterArc("C",2);
@@ -35,14 +34,14 @@ class GrapheListeTest {
 
 
     @Test
-    void ajouterArc() throws IOException {
+    void ajouterArc(){
         List<String> noms = new ArrayList<>();
 
         noms.add("B");
         noms.add("C");
         noms.add("E");
 
-        List<Noeud> noeudsL = new ArrayList<Noeud>();
+        List<Noeud> noeudsL = new ArrayList<>();
         Noeud n1 = new Noeud("B");
         n1.ajouterArc("C",1);
         noeudsL.add(n1);
@@ -56,14 +55,14 @@ class GrapheListeTest {
 
 
     @Test
-    void ajouterArc_creationArc() throws IOException {
+    void ajouterArc_creationArc(){
         List<String> noms = new ArrayList<>();
 
         noms.add("B");
         noms.add("C");
         noms.add("E");
 
-        List<Noeud> noeudsL = new ArrayList<Noeud>();
+        List<Noeud> noeudsL = new ArrayList<>();
         Noeud n1 = new Noeud("B");
         n1.ajouterArc("C",1);
         noeudsL.add(n1);
@@ -108,15 +107,16 @@ class GrapheListeTest {
 
         GrapheListe lg = new GrapheListe(nom,noeuds);
 
-        assertEquals("digraph {\n"+
-            "A -> B [label = 12] \n"+
-            "A -> D [label = 87] \n"+
-            "B -> E [label = 11] \n"+
-            "C -> A [label = 19] \n"+
-            "D -> B [label = 23] \n"+
-            "D -> C [label = 10] \n"+
-            "E -> D [label = 43] \n"+
-        "}",lg.toGraphViz());
+        assertEquals("""
+                digraph {
+                A -> B [label = 12]\s
+                A -> D [label = 87]\s
+                B -> E [label = 11]\s
+                C -> A [label = 19]\s
+                D -> B [label = 23]\s
+                D -> C [label = 10]\s
+                E -> D [label = 43]\s
+                }""",lg.toGraphViz());
     }
 
 }
