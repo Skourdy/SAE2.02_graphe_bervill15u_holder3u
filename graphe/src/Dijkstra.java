@@ -18,34 +18,36 @@ public class Dijkstra {
         v.setValeur(depart, 0);
         v.setParent(depart, "Départ");
 
+        long date_debut = System.nanoTime();
+        while (listeDesNoms.size() > 0) {
+            String nomActuel = listeDesNoms.get(0);
 
-
-            while (listeDesNoms.size() > 0) {
-                String nomActuel = listeDesNoms.get(0);
-
-                double valeurActuel = v.getValeur(nomActuel);
-                for (String nom : listeDesNoms) {
-                    if (v.getValeur(nom) < valeurActuel) {
-                        nomActuel = nom;
-                    }
+            double valeurActuel = v.getValeur(nomActuel);
+            for (String nom : listeDesNoms) {
+                if (v.getValeur(nom) < valeurActuel) {
+                    nomActuel = nom;
                 }
-                List<Arc> listArc = g.suivants(nomActuel);
-                for (Arc value : listArc) {
+            }
+            List<Arc> listArc = g.suivants(nomActuel);
+            for (Arc value : listArc) {
 
-                    valeurActuel = v.getValeur(nomActuel);
-                    String destArc = value.getDest();
-                    double valDest = v.getValeur(destArc);
-                    double coutArc = value.getCout();
+                valeurActuel = v.getValeur(nomActuel);
+                String destArc = value.getDest();
+                double valDest = v.getValeur(destArc);
+                double coutArc = value.getCout();
 
-                    if (valDest > valeurActuel + coutArc) {
-                        v.setValeur(destArc, coutArc + valeurActuel);
-                        v.setParent(destArc, nomActuel);
-                    }
-                    System.out.println(v);
-
+                if (valDest > valeurActuel + coutArc) {
+                    v.setValeur(destArc, coutArc + valeurActuel);
+                    v.setParent(destArc, nomActuel);
                 }
-                listeDesNoms.remove(nomActuel);
+                System.out.println(v);
+
+            }
+            listeDesNoms.remove(nomActuel);
         }
+        long date_fin = System.nanoTime();
+        long duree = date_fin - date_debut;
+        System.out.println(duree);
         return v;
     }
 }

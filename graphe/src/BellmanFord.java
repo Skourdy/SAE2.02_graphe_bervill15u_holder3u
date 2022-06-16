@@ -18,7 +18,7 @@ public class BellmanFord {
         v.setValeur(depart, 0);
         v.setParent(depart, "Départ");
         boolean ligne_modifier = true;
-
+        long date_debut = System.nanoTime();
         //Tant que la ligne est modifer
         while (ligne_modifier) {
             //On remet à false
@@ -51,6 +51,9 @@ public class BellmanFord {
                 }
             }
         }
+        long date_fin = System.nanoTime();
+        long duree = date_fin - date_debut;
+        System.out.println(duree);
         return v;
     }
 }

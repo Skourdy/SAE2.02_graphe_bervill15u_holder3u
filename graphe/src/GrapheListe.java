@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Classe GrapheListe
@@ -39,6 +40,34 @@ public class GrapheListe implements Graphe {
         }
     }
 
+    public GrapheListe(int nbNoeuds,String debut, String fin) throws IOException {
+        Random r =new Random();
+        double coutArc;
+        int nbArc;
+        String dest;
+        this.ensNom = new ArrayList<String>();
+        this.ensNoeud = new ArrayList<Noeud>();
+
+        for (int i = 0; i<nbNoeuds;i++){
+
+            if (i == Integer.parseInt(fin)){
+                this.ensNom.add(Integer.toString(i));
+                this.ensNoeud.add(new Noeud(Integer.toString(i)));
+            }else{
+                nbArc = r.nextInt((int)Math.round(Math.sqrt(nbNoeuds))+1)+1;
+                for (int j = 1;j<nbArc;j++){
+                    coutArc = r.nextDouble(100);
+                    dest = Integer.toString(r.nextInt(nbNoeuds));
+                    while(dest.equals(debut)){
+                        dest = Integer.toString(r.nextInt(nbNoeuds));
+                    }
+                    ajouterArc(Integer.toString(i),dest,coutArc);
+
+                }
+            }
+        }
+    }
+
 
     @Override
     public List<String> listeNoeuds() {
@@ -71,7 +100,7 @@ public class GrapheListe implements Graphe {
      *              Si les noeuds n'existent pas, ils sont créés.
      * @throws IOException
      */
-    public void ajouterArc(String n, String n2, int poids) throws IOException {
+    public void ajouterArc(String n, String n2, double poids) throws IOException {
         if (!ensNom.contains(n)) {
             ensNoeud.add(new Noeud(n));
             ensNom.add(n);
