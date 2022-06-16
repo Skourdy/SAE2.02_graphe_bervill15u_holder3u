@@ -76,16 +76,15 @@ public class Valeur {
      * @return descriptif du nœud
      */
     public String toString() {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         // pour chaque nœud
         for (String s : this.valeur.keySet()) {
             // ajoute la valeur et le nœud parent
             Double valeurNoeud = valeur.get(s);
             String noeudParent = parent.get(s);
-            res += s + " ->  V:" + valeurNoeud + " p:" + noeudParent + "\n";
+            res.append(s).append(" ->  V:").append(valeurNoeud).append(" p:").append(noeudParent).append("\n");
         }
-        return res;
-
+        return res.toString();
     }
     public List<String> calculerChemin(String destination) {
         List<String> chemin = new ArrayList<>();

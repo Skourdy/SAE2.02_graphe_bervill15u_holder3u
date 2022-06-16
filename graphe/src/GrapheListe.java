@@ -10,17 +10,11 @@ import java.util.Random;
  */
 public class GrapheListe implements Graphe {
     //Attributs
-    //Liste des noms des noeuds
+    //Liste des noms des nœuds
     List<String> ensNom;
-    //Liste des noeuds
+    //Liste des nœuds
     List<Noeud> ensNoeud;
 
-
-    //Constructeur de GrapheListe
-    public GrapheListe() {
-        this.ensNom = new ArrayList<>();
-        this.ensNoeud = new ArrayList<>();
-    }
 
 
     public GrapheListe(List<String> ensNom, List<Noeud> ensNoeud) {
