@@ -1,0 +1,16 @@
+(1) Git 
+- vous ne devez pas ajouter les .class, .idea et les .iml das votre dépot
+- il faut un .gitignore adapté
+
+(2) Dijkstra 
+- bug dans la recherche de minimum (valeur actuel n'est pas mis à jour)
+- factoriser le calcul du nom actuel
+
+(3) Dijkstra 
+- temps pas dans l'algorithme (mais dans son appel).
+
+(4) Evaluation 
+- il n'y a pas d'unité dans vos données.
+- on ne sait pas sur combien d'experiences.
+- la question sur le ratio n'est pas celle par noeud mais la division entre temps Dijkstra / temps Bellman.
+
